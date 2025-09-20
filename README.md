@@ -53,8 +53,8 @@ RAG/
 
 ### 1. Clone the repository
 
-git clone https://github.com/<your-username>/medical-qa-chatbot.git
-cd medical-qa-chatbot
+[git clone https://github.com/<your-username>/medical-qa-chatbot.git
+cd medical-qa-chatbot](https://github.com/josephsam-hub/Medical_bot_RAG.git)
 
 ### 2. Create and activate a virtual environment
 **Windows (PowerShell):**
@@ -109,5 +109,6 @@ Real-time embeddings update for new documents
 Voice input/output for interactive QA
 
 Deploy on Streamlit Cloud / Docker / AWS
+
 
 
