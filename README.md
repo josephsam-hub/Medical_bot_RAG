@@ -3,6 +3,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-blue) 
 ![Python](https://img.shields.io/badge/Python-3.10+-yellow)
 
+App Link : https://josephsam-hub-medical-bot-rag-app-awgyms.streamlit.app/
 
 A Streamlit-based **question-answering chatbot** for academic and medical queries.  
 It uses **LangGraph**, **LangChain**, and **Groq API** for context-aware answers, leveraging a vector store built with **Chroma** and **HuggingFace embeddings**.
@@ -108,4 +109,5 @@ Real-time embeddings update for new documents
 Voice input/output for interactive QA
 
 Deploy on Streamlit Cloud / Docker / AWS
+
 
