@@ -1,98 +1,113 @@
-Medical QA Chatbot
+# Medical QA Chatbot
 
-A Streamlit-based question-answering chatbot designed for academic and medical queries. The chatbot uses LangGraph, LangChain, and Groq API for context-aware answers, leveraging a vector store built with Chroma and HuggingFace embeddings.
+![Streamlit](https://img.shields.io/badge/Streamlit-App-blue) 
+![Python](https://img.shields.io/badge/Python-3.10+-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-🚀 Features
+A Streamlit-based **question-answering chatbot** for academic and medical queries.  
+It uses **LangGraph**, **LangChain**, and **Groq API** for context-aware answers, leveraging a vector store built with **Chroma** and **HuggingFace embeddings**.
 
-Contextual QA using LangGraph workflow.
+---
 
-Vector similarity search using Chroma and HuggingFace embeddings.
+## 🚀 Features
 
-Integration with Groq API for LLM responses.
+- Contextual QA using **LangGraph workflow**  
+- Vector similarity search using **Chroma** and **HuggingFace embeddings**  
+- Integration with **Groq API** for LLM responses  
+- Displays **source documents and page numbers**  
+- Persistent **chat session** using Streamlit session state  
+- Scalable architecture for additional data sources  
 
-Display of source documents and page numbers for transparency.
+---
 
-Persistent chat session state using Streamlit session storage.
+## 🎬 Demo
 
-Scalable architecture for adding more data sources.
+![Demo GIF](https://via.placeholder.com/600x300.png?text=Demo+Coming+Soon)
 
-🗂 Project Structure
+> Replace the placeholder GIF with an actual screen recording of your app.
+
+---
+
+## 🗂 Project Structure
+
 RAG/
 │
-├─ app.py                # Main Streamlit app
-├─ config.py             # Configuration file (embedding model, directories, etc.)
-├─ .env                  # Environment variables (GROQ_API_KEY)
-├─ requirements.txt      # Project dependencies
-├─ data/                 # PDF / document data for vectorization
-├─ .venv/                # Python virtual environment
-└─ README.md             # Project documentation
+├─ app.py # Main Streamlit app
+├─ config.py # Configuration (embedding model, directories)
+├─ .env # Environment variables (GROQ_API_KEY)
+├─ requirements.txt # Project dependencies
+├─ data/ # PDF/text documents for vectorization
+├─ .venv/ # Python virtual environment
+└─ README.md # Project documentation
 
-⚙️ Setup Instructions
-1. Clone the repository
+yaml
+Copy code
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/<your-username>/medical-qa-chatbot.git
 cd medical-qa-chatbot
+2. Create and activate a virtual environment
+Windows (PowerShell):
 
-2. Create a virtual environment
+powershell
+Copy code
 python -m venv .venv
-
-
-Activate the virtual environment:
-
-Windows (PowerShell)
-
 .\.venv\Scripts\Activate
+Linux / MacOS:
 
-
-Linux / MacOS
-
+bash
+Copy code
+python -m venv .venv
 source .venv/bin/activate
-
 3. Install dependencies
+bash
+Copy code
 pip install -r requirements.txt
+Optional for faster downloads:
 
-
-Optional: Install hf_xet for faster HuggingFace model downloads:
-
+bash
+Copy code
 pip install hf_xet
-
 4. Set Environment Variables
-
 Create a .env file in the project root:
 
+env
+Copy code
 GROQ_API_KEY=<your_groq_api_key_here>
-
-
-Important: Do not hardcode your API key in app.py.
+Do not hardcode your API key in app.py.
 
 5. Configure Embeddings and Vector Store
+In config.py:
 
-Open config.py and set:
-
-EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # For testing
+python
+Copy code
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # Light model for testing
 CHROMA_PERSIST_DIRECTORY = "data/chroma"
-
-
-You can switch to "intfloat/multilingual-e5-large" for full-scale deployment (requires 2.2GB download).
+For production, you can use "intfloat/multilingual-e5-large" (requires 2.2GB download).
 
 6. Run the Streamlit App
+bash
+Copy code
 streamlit run app.py
+Access the app in your browser:
 
-
-Access the app in your browser: http://localhost:8504
-
+arduino
+Copy code
+http://localhost:8504
 📂 Adding Documents
+Place your PDF or text files in the data/ folder.
 
-Place your PDF or text documents in the data/ folder.
-
-Use your Chroma vector store to index them:
-
-# Chroma persist directory: data/chroma
+The Chroma vector store will automatically index them.
 
 ⚡ Notes & Tips
+First-time model download may take several minutes.
 
-First-time model download may take several minutes depending on your internet speed.
-
-Windows users may see symlink warnings — these are safe to ignore.
+Windows users may see symlink warnings — safe to ignore.
 
 For faster downloads on Windows:
 
@@ -100,7 +115,7 @@ Run Python as Administrator, or
 
 Enable Developer Mode.
 
-Session history is stored in Streamlit’s session state — closing the app resets the chat.
+Session history is stored in Streamlit’s session state — closing the app resets chat.
 
 🛠 Tech Stack
 Component	Library / Tool
@@ -111,12 +126,12 @@ Vector Store	Chroma
 Embeddings	HuggingFaceEmbeddings
 Environment Mgmt	python-dotenv
 Data Processing	pandas
+
 📈 Future Improvements
+Multi-document support with advanced context merging
 
-Add multi-document support with advanced context merging.
+Real-time embeddings update for new documents
 
-Enable real-time embeddings update for new documents.
+Voice input/output for interactive QA
 
-Integrate voice input/output for a more interactive QA system.
-
-Deploy on Streamlit Cloud / Docker / AWS for team access.
+Deploy on Streamlit Cloud / Docker / AWS
